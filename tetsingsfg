@@ -1,0 +1,15 @@
+# make the target folder
+mkdir -p /sfg/jdk-17
+
+# extract into it
+tar -xvzf ibm-semeru-open-jdk_x64_linux_17.0.14_7_openj9-0.49.0.tar.gz \
+    -C /sfg/jdk-17 --strip-components=1
+
+export JAVA_HOME="/sfg/jdk-17"
+export PATH="$JAVA_HOME/bin:$PATH"
+hash -r
+java -version
+
+
+cd /sfg/sterlingintegrator/install/bin
+JAVA_HOME=/sfg/jdk-17 PATH=/sfg/jdk-17/bin:$PATH bash ./run.sh
